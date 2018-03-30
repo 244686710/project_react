@@ -20,3 +20,26 @@ Redux如何和React一起用
     使用applyMiddleware 开启thunk中间件
     Action 可以返回函数，使用dispatch提交action
 
+使用react-redux
+    1.npm install react-redux --save
+    2.忘记subscribe，记住reducer , action, dispatch即可
+    3.React-redux提供provider和connect 两个接口来链接
+
+React-redux具体使用
+    1. Provider组件在应用最外层，传入store既可，只用一次
+    2. Connect 负责从外部获取组件需要的参数
+    3. 
+
+使用装饰器优化connect代码
+    1.Npm run eject 弹出个性化配置
+    2.Npm install babel-plugin-transform-decorators-legacy 插件
+    3.Package.json里babel加上plugin配置
+
+
+React后续
+    1.什么数据应该放在React里
+    2.Redux管理ajax
+    3.Redux管理数据
+
+
+

@@ -1,25 +1,34 @@
 import  React  from 'react'
 // import { addGUN } from './index.redux' // 解耦，不在组件内部引入参数，及方法
+import {connect} from 'react-redux'
+import {addGUN, removeGUN, addGunAsync} from './index.redux'
+const mapStatetoProps = (state) => {
+    return {num: state}
+}
+const actionCreators = {addGUN, removeGUN, addGunAsync}
 
+// App = connect(mapStatetoProps, actionCreators)(App)
+@connect(
+    // 你要state什么属性放到props里
+    mapStatetoProps, 
+    // 你要什么方法，放到props，自动dispatch
+    actionCreators
+)
 class App extends React.Component{
     // constructor( props) {
     //     super(props)
     // }
     render () {
-        const store = this.props.store
-        const num = store.getState()
-        const addGUN = this.props.addGUN
-        const removeGUN = this.props.removeGUN
-        const addGunAsync = this.props.addGunAsync
         return (
             <div>
-                <h1>现在有机枪{num}把</h1>
-                <button onClick = {() => store.dispatch(addGUN()) }>申请武器</button>
-                <button onClick = {() => store.dispatch(removeGUN()) }>回收武器</button>
-                <button onClick = {() => store.dispatch(addGunAsync()) }>拖两天再给</button>
+                <h1>现在有机枪{this.props.num}把</h1>
+                <button onClick = {this.props.addGUN}>申请武器</button>
+                <button onClick = {this.props.removeGUN}>回收武器</button>
+                <button onClick = {this.props.addGunAsync}>拖两天再给</button>
             </div>
         )
     }
 }
+
 
 export default App;
