@@ -18,3 +18,9 @@ React-router4基础知识
         1.url参数、Route组件参数可用冒号标识参数
         2.Redirect组件 跳转
         3.Switch 只渲染一个子Route组件
+
+
+和redux配合
+    复杂redux应用，多个reducer，用combineReducers合并
+    Redirect组件跳转
+    Switch只渲染一个子Route组件
