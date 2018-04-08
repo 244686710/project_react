@@ -9,22 +9,22 @@ mongoose.connection.on('connected', function() {
 });
 // 类似于mysql的表 mongo里有文档，字段的概念
 const User = mongoose.model('user', new mongoose.Schema({
-    username: {type: String, required: true},
+    user: {type: String, required: true},
     age: {type: Number, required: true}
 }))
 
-User.create({
-    username: 'yuyadong',
-    age: 27
-}, function(err, doc) {
-    if(!err) {
-        console.log(doc)
-    }else{
-        console.log(err)
-    }
-})
+// User.create({
+//     user: 'yuyadong',
+//     age: 27
+// }, function(err, doc) {
+//     if(!err) {
+//         console.log(doc)
+//     }else{
+//         console.log(err)
+//     }
+// })
 
-User.update({'username': 'xiaoqiang'}, {'$set': {age: 25}}, function (err, doc) {
+User.update({'user': 'xiaoqiang'}, {'$set': {age: 25}}, function (err, doc) {
     if(!err){
         console.log(doc);
     }else{
@@ -41,14 +41,14 @@ app.get('/', function (req, res){
     res.send('<h1>Hello world!</h1>')
 });
 app.get('/data', function (req, res){
-    User.find({'username': 'yuyadong'}, function (err, doc){
-        res.json(doc);
+    User.find({'user': 'yuyadong'}, function (err, doc){
+        res.send(doc[0]);
     });
 });
 
 app.get('/delete', function (req, res) {
     // TODO删除age=10的
-    User.remove({age: 10}, function(err, doc) {
+    User.remove({age: 27}, function(err, doc) {
         res.json(doc)
     })
 });

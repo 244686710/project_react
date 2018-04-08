@@ -3,7 +3,8 @@ import ReactDom from 'react-dom'
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
-
+import config from './config'
+import 'antd-mobile/dist/antd-mobile.css';
 import {
     BrowserRouter, 
     Route,
