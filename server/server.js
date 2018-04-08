@@ -14,8 +14,8 @@ const User = mongoose.model('user', new mongoose.Schema({
 }))
 
 User.create({
-    username: 'feifei',
-    age: 10
+    username: 'yuyadong',
+    age: 27
 }, function(err, doc) {
     if(!err) {
         console.log(doc)
